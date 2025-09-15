@@ -1,17 +1,25 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue"
+import FibInput from './components/FibInput.vue';
+import FibRecent from './components/FibRecent.vue';
+const submissions = ref<number[]>([])
+function handleSubmit(value: number) {
+  // Keep only the last 5 values
+  submissions.value = [value, ...submissions.value].slice(0, 5)
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <h1>Fibonacci Calculator</h1>
+    <div class="section">
+      <FibInput @submitted="handleSubmit"/>
+    </div>
+    <div>
+      <FibRecent :items="submissions"/>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  
 </template>
 
 <style scoped>
