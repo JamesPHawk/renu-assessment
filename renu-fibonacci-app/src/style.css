@@ -2,6 +2,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 20px;
 
   color-scheme: light dark;
   color: #243746;
@@ -13,20 +14,19 @@
   flex-direction: column;
   align-items: center;
 
-}
-
-.input {
-  padding: 5rem;
-  background-color: #243746;
-  border-radius: 1rem;
-}
-
-.recent {
-  padding: 3rem;
-  margin: 3rem;
-
-}
-
-.card {
-  color: red;
+  .section {
+    padding: 5rem;
+    background-color: #243746;
+    border-radius: 1rem;
+  }
+  
+  .recent {
+    padding: 3rem;
+    margin: 3rem;
+  
+  }
+  
+  .card {
+    color: red;
+  }
 }

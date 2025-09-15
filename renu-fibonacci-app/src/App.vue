@@ -1,16 +1,22 @@
 <script setup lang="ts">
+import { ref } from "vue"
 import FibInput from './components/FibInput.vue';
 import FibRecent from './components/FibRecent.vue';
+const submissions = ref<number[]>([])
+function handleSubmit(value: number) {
+  // Keep only the last 5 values
+  submissions.value = [value, ...submissions.value].slice(0, 5)
+}
 </script>
 
 <template>
   <div class="container">
     <h1>Fibonacci Calculator</h1>
-    <div class="input">
-      <FibInput />
+    <div class="section">
+      <FibInput @submitted="handleSubmit"/>
     </div>
     <div>
-      <FibRecent />
+      <FibRecent :items="submissions"/>
     </div>
   </div>
   
