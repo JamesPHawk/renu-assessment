@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import { submissionStore } from "../submissionStore"
 
 const intValue = ref<string>("")
 const message = ref<string>("")
-
-const emit = defineEmits<{
-  (e: "submitted", payload: { n: number; fibonacci: number }): void
-}>()
 
 function setInput(event: Event) {
   const target = event.target as HTMLInputElement
@@ -42,8 +39,11 @@ async function handleSubmit() {
     const result = await response.json()
     console.log("API response:", result)
 
-    emit("submitted", { n: result.submitted, fibonacci: result.fibonacci })
-    message.value = `F(${result.submitted}) = ${result.fibonacci}`
+    submissionStore.addSubmission({
+      n: result.index,
+      fibonacci: result.value,
+    })
+    message.value = `F(${result.index}) = ${result.value}`
     intValue.value = "" // clear input
   } catch (err: unknown) {
     if (err instanceof Error) {

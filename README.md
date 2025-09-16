@@ -14,11 +14,10 @@ This should start running on localhost:4173
 
 Starting the python-flask server:
 1. In a different terminal instance, ```cd renu-fibonacci-app/backend-files```
-2. Run ```venv\Scripts\activate```
+2. Run ```.venv\Scripts\activate```
 3. Run ```pip install -U flask```
 4. Run ```pip install -U flask-cors```
-5. Run ```flask run```
-This should start the server at localhost:5000
+5. Run ```flask run```. This should start the server at localhost:5000
 
 From there, it's as simple as submitting integers!
 
