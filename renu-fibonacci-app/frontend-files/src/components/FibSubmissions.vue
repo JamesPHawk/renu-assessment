@@ -14,7 +14,7 @@ const columns = computed<(Submission | null)[]>(() => {
 <template>
   <div>
     <h2>Last 5 Submissions</h2>
-    <table border="1" cellspacing="0" cellpadding="8">
+    <table border="1" cellspacing="0" cellpadding="8" style="margin:auto">
       <tbody>
         <tr>
           <td><strong>n</strong></td>

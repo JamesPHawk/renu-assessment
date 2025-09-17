@@ -12,12 +12,17 @@ Starting the Vue + Vite app:
 5. Run ```npm run preview```
 This should start running on localhost:4173
 
-Starting the python-flask server:
+Starting the python server:
 1. In a different terminal instance, ```cd renu-fibonacci-app/backend-files```
 2. Run ```.venv\Scripts\activate```
 3. Run ```pip install -U flask```
 4. Run ```pip install -U flask-cors```
 5. Run ```flask run```. This should start the server at localhost:5000
+
+To run the tests:
+1. While the python server is running, open a new terminal instance and cd into ```cd renu-fibonacci-app/frontend-files/tests```
+2. Run ```npm run test```
+
 
 From there, it's as simple as submitting integers!
 
