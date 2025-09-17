@@ -57,7 +57,7 @@ async function handleSubmit() {
 
 <template>
   <div class="input-area">
-    <label class="input-text" for="integerInput">Index</label>
+    <label class="input-text" for="integerInput">Index (n)</label>
     <input
       id="integerInput"
       :value="intValue"
@@ -67,8 +67,12 @@ async function handleSubmit() {
       class="input-field"
       placeholder="Enter an integer"
     />
-    <button @click="handleSubmit" class="submit-btn">Submit</button>
-    <p>{{ message }}</p>
+    <div class="btn-container">
+      <button @click="handleSubmit" class="submit-btn">Submit</button>
+    </div>
+    <p style="text-align: center;">{{ message }}</p>
+    <p style="text-align: center;">This calculator will find the Fibonacci value at <br>n for -604<span>&#8804;</span>n<span>&#8804;</span>1476.</p>
+
   </div>
 
 </template>
@@ -91,6 +95,11 @@ async function handleSubmit() {
   padding: 1.25rem;
   color: rgba(47,60,69,.75);
   font-size: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .submit-btn {
