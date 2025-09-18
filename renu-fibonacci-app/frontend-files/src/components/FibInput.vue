@@ -9,7 +9,6 @@ function setInput(event: Event) {
   const target = event.target as HTMLInputElement
   let value = target.value
 
-  // allow optional leading "-" and digits only
   value = value.replace(/(?!^-)\D/g, "")
 
   target.value = value
@@ -37,7 +36,6 @@ async function handleSubmit() {
     }
 
     const result = await response.json()
-    console.log("API response:", result)
 
     submissionStore.addSubmission({
       n: result.index,
