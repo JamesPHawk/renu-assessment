@@ -1,8 +1,8 @@
 import { reactive } from "vue"
 
 export interface Submission {
-  n: number
-  fibonacci: number
+  index: number
+  value: number
 }
 
 interface SubmissionStore {
@@ -14,7 +14,6 @@ export const submissionStore: SubmissionStore = reactive({
   submissions: [] as Submission[],
   addSubmission(sub: Submission) {
     // Add new submission to the start
-    console.log("ADDING NEW SUBMISSION TABLESTORE", sub)
     this.submissions.unshift(sub)
     // Keep only last 5
     if (this.submissions.length > 5) {

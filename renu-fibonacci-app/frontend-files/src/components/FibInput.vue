@@ -9,7 +9,6 @@ function setInput(event: Event) {
   const target = event.target as HTMLInputElement
   let value = target.value
 
-  // allow optional leading "-" and digits only
   value = value.replace(/(?!^-)\D/g, "")
 
   target.value = value
@@ -37,13 +36,16 @@ async function handleSubmit() {
     }
 
     const result = await response.json()
-    console.log("API response:", result)
 
-    submissionStore.addSubmission({
-      n: result.index,
-      fibonacci: result.value,
-    })
-    message.value = `F(${result.index}) = ${result.value}`
+    if (result.value !== undefined) {
+      submissionStore.addSubmission({
+        index: result.index,
+        value: result.value,
+      })
+      message.value = `F(${result.index}) = ${result.value}`
+    } else {
+      message.value = "Number is out of range"
+    }
     intValue.value = "" // clear input
   } catch (err: unknown) {
     if (err instanceof Error) {
