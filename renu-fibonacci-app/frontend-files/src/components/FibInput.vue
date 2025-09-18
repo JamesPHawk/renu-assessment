@@ -36,11 +36,11 @@ async function handleSubmit() {
     }
 
     const result = await response.json()
-    console.log("API response:", result)
+
     if (result.value !== undefined) {
       submissionStore.addSubmission({
-        n: result.index,
-        fibonacci: result.value,
+        index: result.index,
+        value: result.value,
       })
       message.value = `F(${result.index}) = ${result.value}`
     } else {

@@ -1,8 +1,8 @@
 import { reactive } from "vue"
 
 export interface Submission {
-  n: number
-  fibonacci: number
+  index: number
+  value: number
 }
 
 interface SubmissionStore {

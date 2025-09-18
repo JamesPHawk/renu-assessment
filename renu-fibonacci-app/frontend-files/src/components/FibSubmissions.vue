@@ -19,13 +19,13 @@ const columns = computed<(Submission | null)[]>(() => {
         <tr>
           <td><strong>n</strong></td>
           <td v-for="(c, i) in columns" :key="'n-' + i">
-            {{ c ? c.n : "-" }}
+            {{ c ? c.index : "-" }}
           </td>
         </tr>
         <tr>
           <td><strong>value</strong></td>
           <td v-for="(c, i) in columns" :key="'val-' + i">
-            {{ c ? c.fibonacci : "-" }}
+            {{ c ? c.value : "-" }}
           </td>
         </tr>
       </tbody>
