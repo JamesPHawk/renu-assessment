@@ -36,12 +36,16 @@ async function handleSubmit() {
     }
 
     const result = await response.json()
-
-    submissionStore.addSubmission({
-      n: result.index,
-      fibonacci: result.value,
-    })
-    message.value = `F(${result.index}) = ${result.value}`
+    console.log("API response:", result)
+    if (result.value !== undefined) {
+      submissionStore.addSubmission({
+        n: result.index,
+        fibonacci: result.value,
+      })
+      message.value = `F(${result.index}) = ${result.value}`
+    } else {
+      message.value = "Number is out of range"
+    }
     intValue.value = "" // clear input
   } catch (err: unknown) {
     if (err instanceof Error) {
