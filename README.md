@@ -14,18 +14,22 @@ This should start running on localhost:4173
 Starting the python server:
 1. In a different terminal instance, ```cd renu-assessment/renu-fibonacci-app/backend-files```
 2. Run ```py -3 -m venv .venv```
-2. Run ```.venv\Scripts\activate```
-3. Run ```pip install -U flask```
-4. Run ```pip install -U flask-cors```
-5. Run ```flask run```. This should start the server at localhost:5000
-
-To run the tests:
-1. While the python server is running, open a new terminal instance and run <br>```cd renu-assessment/renu-fibonacci-app/frontend-files/tests```
-2. Run ```npm i```
-2. Run ```npm run test```
-
+3. Run ```.venv\Scripts\activate```. Note that you can run ```deactivate``` to exit the virtual environment.
+4. Run ```pip install -U flask```
+5. Run ```pip install -U flask-cors```
+6. Run ```flask run```. This should start the server at localhost:5000
 
 From there, it's as simple as submitting integers!
 
+To run vitest tests:
+1. While the python server is running, open a new terminal instance and run <br>```cd renu-assessment/renu-fibonacci-app/tests```
+2. Run ```npm i```
+3. Run ```npm run test```
+<br>Note that you do <strong>not</strong> need to be running the frontend server for vitest to run.
+
+To run Playwright tests:
+1. With both the Vue + Vite app <strong>and</strong> the python server running, run ```npx playwright test``` in the tests folder.
+    - Running ```npx playwright test``` will just run the tests, but adding the ```--ui``` flag will open an <br>interactive window that lets you see the breakdown of the tests. 
+
 Troubleshooting:
-- If you submit a valid integer and get a ```NetworkError when attempting to fetch resource``` message, check the ```app.py``` file in **renu-fibonacci-app/backend-files/.venv**.<br>If the import statement for flask-cors is throwing an import error, try changing your python interpreter to v3.9.13. <br>This can be changed in Visual Studio Code in the bottom left corner.
+- If you submit a valid integer and get a ```NetworkError when attempting to fetch resource``` message, check the ```app.py``` file in **renu-fibonacci-app/backend-files/.venv**.<br>If the import statement for flask-cors is throwing an import error, try changing your python interpreter to v3.9.13 or higher. <br>This can be changed in Visual Studio Code in the bottom left corner.
